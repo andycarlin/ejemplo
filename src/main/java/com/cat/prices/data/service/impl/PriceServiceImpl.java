@@ -9,6 +9,8 @@ import com.cat.prices.data.service.IPriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PriceServiceImpl implements IPriceService {
@@ -21,6 +23,11 @@ public class PriceServiceImpl implements IPriceService {
         Price price = mapper.toEntity(request);
         Price saved = repository.save(price);
         return mapper.toResponse(saved);
+    }
+
+    @Override
+    public List<Price> listAllPrices() {
+        return List.of();
     }
 
 
